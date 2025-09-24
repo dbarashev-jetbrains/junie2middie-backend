@@ -9,7 +9,7 @@
 Creates a new contact using the provided payload in JSON format:
 ```
     {
-      "id": 2,
+      "id": -1, // if id is < 0 we will create a new contact, otherwise we will update the existing, if any 
       "name": "Bob Johnson",
       "status": "Away",
       "avatarUrl": "https://example.com/avatar2.jpg"
@@ -48,7 +48,7 @@ Creates a new message using the provided payload in JSON format:
 
 ```
 {
-  "id": 0, 
+  "id": -1, // id does not matter when creating a message 
   "content": "Hello, this is a test message",
   "senderId": 0, 
   "receiverId": 1,  
@@ -70,16 +70,14 @@ Returns a conversation between the given contact1 and contact2 in JSON format:
       "content": "Hello, how are you?",
       "senderId": 1,
       "receiverId": 0,
-      "timestamp": "2023-06-15T10:30:00",
-      "isOutgoing": false
+      "timestamp": "2023-06-15T10:30:00"
     },
     {
       "id": 2,
       "content": "I'm good, thanks for asking!",
       "senderId": 0,
       "receiverId": 1,
-      "timestamp": "2023-06-15T11:30:00",
-      "isOutgoing": true
+      "timestamp": "2023-06-15T11:30:00"
     }
  ]
 }
